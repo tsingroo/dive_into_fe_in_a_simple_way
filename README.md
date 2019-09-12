@@ -13,6 +13,7 @@
 * 08-模块化-Module
 * 09-Class
 * 10-Promise和async await
+* 11-函数式编程
 
 ### Vue专题
 * 什么是双向绑定
@@ -24,6 +25,7 @@
 
 ### React专题
 * ReactJs实现双向绑定的原理
+* Redux
 * ReactNative原理
 
 
