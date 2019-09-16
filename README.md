@@ -1,10 +1,12 @@
 # dive_into_fe_in_a_simple_way
 深入浅出前端开发-从头讲解前端开发的一些事情
 
+配合视频看更香，计划将视频上传到Bilibili
+
 ### 主要内容
 * [00-前言](./content/00_preface.md)
 * [01-JS的诞生和目的](./content/01_js_and_netscape.md)
-* [02-作用域(函数作用域)](./content/02_scope.md)
+* [02-作用域](./content/02_scope.md)
 * 03-原型
 * 04-What is 'this'?-'this'的设计
 * 05-闭包
