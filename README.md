@@ -3,19 +3,19 @@
 
 配合视频看更香，计划将视频上传到Bilibili
 
-### 基础内容
+### 主体内容
 * [00-前言](./content/00_preface.md)
 * [01-JS的诞生和目的](./content/01_js_and_netscape.md)
 * [02-作用域](./content/02_scope.md)
-* 03-原型
-* 04-What is 'this'?-'this'的设计
-* 05-闭包
-* 06-Node
-* 07-ECMAScript
-* 08-模块化-Module
-* 09-Class
-* 10-Promise和async await
-* 11-函数式编程
+* [03-原型](./content/03_prototype.md)
+* [04-What is 'this'?-'this'的设计](./content/04_what_is_this.md)
+* [05-闭包](./content/05_closure.md)
+* 06-NodeJs
+* 07-异步机制-Promise和async await
+* 08-函数式编程
+* 09-CSS核心概念
+* 10-HTTP演进
+
 
 ### 性能优化专题
 
@@ -43,5 +43,6 @@
 * Etc...
 
 
-### Webpack专题
+### 其他
+* babel是什么
 * wepack核心概念
