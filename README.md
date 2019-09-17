@@ -3,7 +3,7 @@
 
 配合视频看更香，计划将视频上传到Bilibili
 
-### 主要内容
+### 基础内容
 * [00-前言](./content/00_preface.md)
 * [01-JS的诞生和目的](./content/01_js_and_netscape.md)
 * [02-作用域](./content/02_scope.md)
@@ -17,21 +17,31 @@
 * 10-Promise和async await
 * 11-函数式编程
 
+### 性能优化专题
+
 ### Vue专题
 * 什么是双向绑定
 * 什么是虚拟DOM
 * Vue实现双向绑定的原理
-* Vue的整体编译流程
-* Vue生命周期钩子的实现
-* Vue性能优化
+* Vue钩子函数和性能优化
+* Vue最佳实践
+* Vue源码：Vue的整体编译流程
+* Vue源码：Vue生命周期钩子的实现
+* Etc...
 
 ### React专题
-* ReactJs实现双向绑定的原理
-* Redux
+* ReactJs实现数据到视图更新的原理
+* Redux、Redux-saga
 * ReactNative原理
 
-
-
-### 其他资源
-* wepack核心概念
+### Angular专题(V2+)
+* 基础语法
 * Angular实现双向绑定的原理
+* 模块化机制
+* 依赖注入
+* RxJs
+* Etc...
+
+
+### Webpack专题
+* wepack核心概念

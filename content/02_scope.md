@@ -67,12 +67,42 @@ console.log(foo);
 
 示例:
 ```JavaScript
+// window scope
+function fooOuter() {
+  // fooOuter scope
+  function fooInner() {
+    // fooInner scope
+
+    bar = 100;
+  }
+  fooInner();
+}
+fooOuter();
+console.log(window.bar);
+
+// 打印输出100
+// bar在fooIner作用域找不到会去fooOuter找
+// 在fooOuter找不到会去window找并赋值，意外污染了全局变量
+
 ```
 
 #### 块级作用域
 
-解释:
+解释:可以简单的认为一对花括号`{}`之间构成的区域就叫做块，在这这个花括号之间用let或const定义的变量只在花括号内有效，跑出花括号去就访问不到。
 
 示例:
 ```JavaScript
+if(true) {
+  const bar =123;
+  console.log(bar);
+}
+console.log(bar)
+
+// 打印结果如下
+// 123
+// Uncaught ReferenceError: bar is not defined
 ```
+
+块级作用域的出现就是为了缩小变量影响范围，避免如作用域链的访问一样修改到全局变量。
+
+const的出现是为了限制变量的使用，函数式里面提倡不用变量，函数式编程具体会在后面讲解。
