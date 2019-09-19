@@ -31,6 +31,11 @@ windowMiao() // 在window作用域下调用windowMiao，this指向window
 
 #### 怪异的设计
 
+
+
+
+
+
 #### call、apply和bind
 
 #### Es6的箭头函数
