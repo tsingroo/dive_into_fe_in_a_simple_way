@@ -20,10 +20,22 @@
 * [11-HTTP演进](./content/11_http.md)
 
 
+### Angular专题(V2+版本)
+* [01-基础](./angular_v2plus/01_basic.md)
+* [02-原理](./angular_v2plus/02_fundamentals.md)
+* 03-自定义配置
+* RxJs
+* 依赖注入
+* Angular-PWA
+* Schematics
+* Etc...
+
+
 ### 性能优化专题
 * [理论篇](./performance_optimization/01_theroy.md)
 * 实践篇
 * PWA
+
 
 ### Vue专题
 * 什么是双向绑定
@@ -36,6 +48,7 @@
 * Vue源码解析：双向绑定
 * Vue UI框架源码解析
 
+
 ### React专题
 * ReactJs实现数据到视图更新的原理
 * Redux、Redux-saga
@@ -43,14 +56,6 @@
 * React源码解析
 * React源码解析:Fiber
 
-
-### Angular专题(V2+)
-* 基础语法
-* 原理
-* 模块
-* 依赖注入
-* RxJs
-* Etc...
 
 ### NodeJs服务端专题
 

@@ -1,5 +1,6 @@
 #### 本文涉及的内容
-* 浏览器和JS引擎
+* 进程和线程
+* 浏览器和JS引擎和V8和NodeJs
 * 如何实现异步
 * MacroTask和MicroTask
 * generator函数
@@ -8,7 +9,12 @@
 
 ---
 
-#### 浏览器和JS引擎
+话题太大，我先准备准备
+...TO BE CONTINUE
+
+#### 进程和线程
+
+#### 浏览器和JS引擎和V8和NodeJs
 
 
 #### 异步机制实现
@@ -24,6 +30,3 @@
 
 
 #### async和await
-
-
-...TO BE CONTINUE
