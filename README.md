@@ -25,9 +25,9 @@
 * [02-原理](./angular_v2plus/02_fundamentals.md)
 * 03-自定义配置
 * RxJs
-* 依赖注入
 * Angular-PWA
 * Schematics
+* Angular中的设计模式
 * Etc...
 
 
