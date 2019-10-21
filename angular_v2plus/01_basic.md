@@ -74,11 +74,24 @@ export class SomeComponent implements OnInit{
 
 管道概念来源于linux的命令行，符号是一个竖线`|`，前面的数据经过管道和管道函数就会发生变化。一般来说，管道能处理的，使用代码进行数据转换也能实现，但是代码转换噶变了数据源，管道是为了在不改变数据源的情况下去只改变数据的显示，只在最前面的html上使用。
 
-比如一个使用场景就是，多语言货币金额的显示，人民币、美元、英镑等都各不相同，前端接到服务端数据的时候自然可以使用代码直接将数据转换成对应货币的字符串，但是如果将各个币种的转换封装成管道函数，使用起来和解耦上回更合适一些。
+比如一个使用场景就是，多语言货币金额的显示，人民币、美元、英镑等都各不相同，前端接到服务端数据的时候自然可以使用代码直接将数据转换成对应货币的字符串，但是如果将各个币种的转换封装成管道函数，使用起来和解耦上会更合适一些。
 
+在Vue框架中也有管道的概念，用法也是一样的。
+管道在Angular中使用Pipe进行定义,具体代码如下,实现了对特定关键词的高亮：
+```TypeScript
+
+@Pipe({name: 'exponentialStrength'})
+export class ExponentialStrengthPipe implements PipeTransform {
+  transform(value: number, exponent?: number): number {
+    return Math.pow(value, isNaN(exponent) ? 1 : exponent);
+  }
+}
+
+```
 
 #### 服务
 
+服务一般使用Injectable进行修饰，服务在Angular中一般用于获取数据。服务可以通过Angular框架自动注入到各个Component中。
 
 
 #### 使用合适的工具来解决合适的问题
