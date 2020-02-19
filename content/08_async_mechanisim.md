@@ -44,20 +44,73 @@ NodeJs中Promise.reolve的和process.nextTick的都会放到微任务。而setTi
 ```JavaScript
 $.ajax({
   url: 'someUrl',
-  success(resp) {
+  success: function (resp) {
     if(resp.code ===0) {
-      someCallBackFn(reso.data, someCallBackFn2);
+      someCallBackFn(reso.data, function() {
+        // doSomthing
+      }, error: function (err) {
+        // errCallBack();
+      });
     }
+  },
+  error: function (err) {
+    // someErrCb();
   }
 })
 ```
 这样的代码在逻辑简单的情况下没有任何问题，当业务逻辑复杂之后，就会出现十几行代码全是花括号和小括号的情况。这样的代码执行到哪一层的逻辑从代码上并不是很容易看清楚。复杂度指数级增长，但是我们只能管理线性复杂度的项目。由此，我们必须对这些指数级的代码进行降维，由此衍生了多种方案。
 
-#### generator函数
-
-
+比如一个支付下单的场景在回调的时候就得嵌套两层，外层是预下单接口，内层是确认接口。如果在微信内需要获取账号信息就又多了一层。
+复杂的业务系统也会出现调多个系统的接口才能完成一个操作的情况，这些场景下，回调会经常搞错嵌套，也不容易维护。
 
 #### Promise
 
+可能为了解决回调地狱出来的第一个(可能)方案就是promise了，jQuery里面也有类似Promise的叫$deferre。$.ajax返回的就是一个$deferred，可以像下面代码这么调用。
+```JavaScript
+$.ajax({
+}).then(function(resp) {
+}).then(function(resp) {
+});
+```
+对于上面提到的几个场景，Promise的链式调用已经把代码改进的挺好看了，并且对于从回调地狱出来的人这种写法也很是酸爽。直到现在还是有很多人在用这种写法。
+
+这种写法有一个特点就是，代码中抛出的异常都得用.catch()方法捕获，而不能用try catch代码块捕获。个人认为这也不能叫缺点。
+
+
+#### generator函数
+
+同为ES6提出的另一项异步代码改进技术就是generator。generator函数从写法上来说是在function后面加了一个*，里面可以返回多个值，返回值的方式是yield，而调用方接收值的方式是调用next()方法。
+
+写法和调用如下:
+```JavaScript
+function* gen(x){
+  var y = yield x + 2;
+  return y;
+}
+
+var g = gen(1);
+g.next() // { value: 3, done: false }
+g.next(2) // { value: 2, done: true }
+```
+
+函数的执行本质上就是在执行到yield时，计算yield的表达式，然后保留一下当前执行的上下文，然后继续执行调用者的函数。等下一次调用next()方法的时候恢复generator函数的执行上下文，并开始新一轮的计算。
+
+generator相对于Promise的认知门槛比较高，我的理解也有限。目前为止在阿里的DvaJs使用的Redux-saga就是generator这种形式。
 
 #### async和await
+
+ES标准继续向前，社区又尝试了更多好用的特性，比如async和await。代码写法如下
+```JavaScript
+// await 必须放到一个async声明的函数里面
+async loadMyPhotos() {
+  const photoUrls = [];
+  try {
+    const myAlbumId = await getMyAlbumId();
+    photoUrls = await getPhotoByAlbumId(myAlbumId);
+  } catch(exp) {
+    // toast Error
+  }
+  return photoUrls;
+}
+```
+对于调用多个回调才能走完的业务逻辑，并且各个异步调用之间还要处理大量的其他同步操作，这种同步的写法比Promise看起来要更清晰一些。如果对await的数据进行处理，看起来也更舒服一些。
